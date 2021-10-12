@@ -24,7 +24,7 @@ Scenario: Login as a student
     And user enters admin password
     Then user should see the dashboard
 
-        @wip
+
 Scenario:User search title verification
   Given User is on Google home page
   When User searches for "mango"
