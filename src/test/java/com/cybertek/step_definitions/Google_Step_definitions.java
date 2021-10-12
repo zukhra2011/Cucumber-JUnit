@@ -33,4 +33,9 @@ String expectedTitle="apple";
         Assert.assertTrue(actualTitle.contains(expectedTitle));
 
     }
+
+    @When("User searches for {string} in google")
+    public void userSearchesForInGoogle(String arg0) {
+        
+    }
 }

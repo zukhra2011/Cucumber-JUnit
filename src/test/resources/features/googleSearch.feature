@@ -8,8 +8,13 @@ Feature: Google Search Functionality
     Then User should see title is Google
 
 
-@Tagusingforseparatetestingrun  @regression @smoke
+
   Scenario: User search title verification
     Given User is on Google home page
     When User searches for apple
     Then User should see apple in the title
+
+    Scenario: User search title verification
+      Given User is on Google home page
+      When User searches for "mango fruit" in google
+      Then user should see "mango fruit" in the tile

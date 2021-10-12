@@ -6,10 +6,13 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
+        plugin="html:target/cucumber-report.html",
         features = "src/test/resources/features",
         glue="com/cybertek/step_definitions",
         dryRun=false,
         tags= "@wip"
+        //can do all @all, can do separate @Student , can do conditions @Librarian or/and @Student,
+        //regression and not @student,
 )
 public class Cukes_Runner {
 }
