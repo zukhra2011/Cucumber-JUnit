@@ -2,6 +2,7 @@ package com.cybertek.step_definitions;
 
 import com.cybertek.Utilities.ConfigurationReader;
 import com.cybertek.Utilities.Driver;
+import com.cybertek.pages.EtsySearchPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -22,16 +23,20 @@ public class EtsyStep_Definitions {
         Assert.assertTrue("Title is not as expected", actualTitle.equals(expectedTitle));
 
     }
+    EtsySearchPage etsySearchPage=new EtsySearchPage();
 
     @When("User types Wooden spoon in the search bar")
     public void userTypesWoodenSpoonInTheSearchBar() {
+        etsySearchPage.searchBar.sendKeys("Wooden spoon");
     }
-
     @And("User clicks to search button")
     public void userClicksToSearchButton() {
+        etsySearchPage.searchButton.click();
     }
-
     @Then("User sees title is Wooden spoon | Etsy")
     public void userSeesTitleIsWoodenSpoonEtsy() {
+        String expectedTitle="Wooden spoon | Etsy";
+        String actualTitle=Driver.getDriver().getTitle();
+        Assert.assertEquals("Title is not expected", actualTitle, expectedTitle);
     }
 }
