@@ -8,7 +8,6 @@ Feature: Etsy search feature
     #expected: Etsy-Shop for handmade, vintage, custom and unique gifts for everyone
 
   @wipZukhra
-
   Scenario: Etsy Search Functionality Title Verification
    Given User is on Etsy landing page
     When User types Wooden spoon in the search bar
