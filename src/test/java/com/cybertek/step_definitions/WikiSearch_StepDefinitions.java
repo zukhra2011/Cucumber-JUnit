@@ -36,5 +36,10 @@ public class WikiSearch_StepDefinitions {
         Assert.assertEquals(expectedTitle,actualTitle);
     }
 
-
+    @Then("User sees {string} is in the main header")
+    public void userSeesIsInTheMainHeader(String arg0) {
+        String expectedHeader=arg0;
+        String actualheader= wikiSearchPage.mainHeader.getText();
+        Assert.assertEquals(actualheader,expectedHeader);
+    }
 }
