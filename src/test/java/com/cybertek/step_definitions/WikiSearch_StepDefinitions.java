@@ -20,7 +20,7 @@ public class WikiSearch_StepDefinitions {
 
     @When("User types {string} in the wiki search box")
     public void userTypesInTheWikiSearchBox(String arg0) {
-        wikiSearchPage.searchBox.sendKeys("Steve Jobs");
+        wikiSearchPage.searchBox.sendKeys(arg0);
 
     }
     @And("User clicks wiki search button")
@@ -31,7 +31,7 @@ public class WikiSearch_StepDefinitions {
     @Then("User sees {string} is in the wiki title")
     public void userSeesIsInTheWikiTitle(String arg0) {
         String actualTitle=Driver.getDriver().getTitle();
-        String expectedTitle=arg0+ "- Wikipedia"; //arg0  makes it dynamic
+        String expectedTitle=arg0+ " - Wikipedia"; //arg0  makes it dynamic
         // arg0 stands for the string in the wiki search feature. "Steve Jobs"
         Assert.assertEquals(expectedTitle,actualTitle);
     }
