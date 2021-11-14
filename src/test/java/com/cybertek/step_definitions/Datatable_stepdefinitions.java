@@ -2,14 +2,17 @@ package com.cybertek.step_definitions;
 
 import com.cybertek.Utilities.ConfigurationReader;
 import com.cybertek.Utilities.Driver;
+import com.cybertek.pages.LibraryLoginPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 import java.util.List;
 import java.util.Map;
 
 public class Datatable_stepdefinitions {
+    LibraryLoginPage libraryLoginPage=new LibraryLoginPage();
     @Given("User is on the login page of library app")
     public void user_is_on_the_login_page_of_library_app() {
         System.out.println("User is on the login page!");
@@ -20,13 +23,16 @@ public class Datatable_stepdefinitions {
 
     @When("User enters username and password")
     public void user_enters_username_and_password(Map<String,String> loginInfo) {
-        System.out.println("loginInfo.get(\"Username\") = " + loginInfo.get("username"));
-        System.out.println("loginInfo.get(\"password\") = " + loginInfo.get("password"));
+       libraryLoginPage.emailInput.sendKeys(loginInfo.get("username"));
+       libraryLoginPage.passwordInput.sendKeys(loginInfo.get("password"));
+       libraryLoginPage.signIn.click();
     }
-    @Then("User should see title is something")
+    @Then("User should see title is Library")
     public void user_should_see_title_is_something() {
         System.out.println("Title verification");
-
+   String actualTitle=Driver.getDriver().getTitle();
+   String expectedTitle="Library";
+        Assert.assertEquals(actualTitle,expectedTitle);
     }
 
     @Then("User should see below words displayed")

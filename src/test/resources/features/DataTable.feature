@@ -17,4 +17,4 @@ Scenario: Library login example using data table
    When  User enters username and password
   |username|librarian13@library|
   |password|myrandompassword       |
-  Then User should see title is something
+  Then User should see title is Library
